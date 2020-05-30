@@ -33,7 +33,7 @@ RUN chmod u+x ./mvnw
 # Build all the dependencies in preparation to go offline. 
 # This is a separate step, the dependencies will be cached unless 
 # the pom.xml file has changed.
-#RUN ./mvnw dependency:go-offline -B
+RUN ./mvnw dependency:go-offline -B
 
 # Copy the project source
 COPY src src
