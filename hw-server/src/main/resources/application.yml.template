@@ -17,22 +17,22 @@ spring:
         client:
           registration:
             google:
-              clientId: HERE ID
-              clientSecret: HERE SECRET
+              clientId: $client_id_g
+              clientSecret: $client_secret_g
               redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
               scope:
                 - email
                 - profile
             facebook:
-              clientId: HERE ID
-              clientSecret: HERE SECRET
+              clientId: $client_id_f
+              clientSecret: $client_secret_f
               redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
               scope:
                 - email
                 - public_profile
             github:
-              clientId: HERE ID
-              clientSecret: HERE SECRET
+              clientId: $client_id_git
+              clientSecret: $client_secret_git
               redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
               scope:
                 - user:email
