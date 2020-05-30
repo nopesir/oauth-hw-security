@@ -49,7 +49,8 @@ RUN ./mvnw package -DskipTests
 RUN rm -R src
 
 # Clear unused files
-RUN rm -R 
+RUN rm -R .mvn
+RUN rm mvnw
 
 RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 
