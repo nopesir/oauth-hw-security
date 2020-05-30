@@ -1,7 +1,7 @@
 #### Stage 1: Build the application
 FROM openjdk:8-jdk-alpine as build
 
-# Retrieve the secrets from docker-compose-build
+# Retrieve the secrets from docker-compose-build.yaml
 # Google
 ARG client_id_g
 ARG client_secret_g

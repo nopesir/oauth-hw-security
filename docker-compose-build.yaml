@@ -7,7 +7,19 @@ services:
   # App backend service
   app-server:
     # Configuration for building the docker image for the backend service
-    build: ./hw-server
+    build:
+      context: ./hw-server
+      dockerfile: Dockerfile
+      args: 
+        # Google
+        client_id_g: client_id_g 
+        client_secret_g: client_secret_g
+        # Facebook
+        client_id_f: client_id_f
+        client_secret_f: client_secret_f
+        # GitHub
+        client_id_git: client_id_git
+        client_secret_git: client_secret_git
     ports:
       - "8080:8080" # Forward the exposed port 8080 on the container to port 8080 on the host machine
     restart: always
@@ -23,7 +35,9 @@ services:
 
   # Frontend Service 
   app-client:
-    image: luigiferrettino/hw-security:hw-client
+    build:
+      context: ./hw-client
+      dockerfile: Dockerfile
     ports:
       - "9090:9090" # Map the exposed port 9090 on the container to port 9090 on the host machine
     restart: always
@@ -32,7 +46,7 @@ services:
     networks:
       - frontend  
 
-  # Database Service (Mysql)
+  # Database Service (Mysql) pulled from Docker Hub
   db:
     image: mysql:5.7
     ports:
